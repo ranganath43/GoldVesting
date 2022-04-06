@@ -1,0 +1,718 @@
+{
+	"compiler": {
+		"version": "0.8.13+commit.abaa5c0e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "token_",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "previousOwner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "OwnershipTransferred",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "Released",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [],
+				"name": "Revoked",
+				"type": "event"
+			},
+			{
+				"stateMutability": "payable",
+				"type": "fallback"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "holder",
+						"type": "address"
+					}
+				],
+				"name": "computeNextVestingScheduleIdForHolder",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "vestingScheduleId",
+						"type": "bytes32"
+					}
+				],
+				"name": "computeReleasableAmount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "holder",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "index",
+						"type": "uint256"
+					}
+				],
+				"name": "computeVestingScheduleIdForAddressAndIndex",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_beneficiary",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_start",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_cliff",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_duration",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_slicePeriodSeconds",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "_revocable",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "createVestingSchedule",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "holder",
+						"type": "address"
+					}
+				],
+				"name": "getLastVestingScheduleForHolder",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "bool",
+								"name": "initialized",
+								"type": "bool"
+							},
+							{
+								"internalType": "address",
+								"name": "beneficiary",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "cliff",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "start",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "duration",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "slicePeriodSeconds",
+								"type": "uint256"
+							},
+							{
+								"internalType": "bool",
+								"name": "revocable",
+								"type": "bool"
+							},
+							{
+								"internalType": "uint256",
+								"name": "amountTotal",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "released",
+								"type": "uint256"
+							},
+							{
+								"internalType": "bool",
+								"name": "revoked",
+								"type": "bool"
+							}
+						],
+						"internalType": "struct TokenVesting.VestingSchedule",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getToken",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "index",
+						"type": "uint256"
+					}
+				],
+				"name": "getVestingIdAtIndex",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "vestingScheduleId",
+						"type": "bytes32"
+					}
+				],
+				"name": "getVestingSchedule",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "bool",
+								"name": "initialized",
+								"type": "bool"
+							},
+							{
+								"internalType": "address",
+								"name": "beneficiary",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "cliff",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "start",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "duration",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "slicePeriodSeconds",
+								"type": "uint256"
+							},
+							{
+								"internalType": "bool",
+								"name": "revocable",
+								"type": "bool"
+							},
+							{
+								"internalType": "uint256",
+								"name": "amountTotal",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "released",
+								"type": "uint256"
+							},
+							{
+								"internalType": "bool",
+								"name": "revoked",
+								"type": "bool"
+							}
+						],
+						"internalType": "struct TokenVesting.VestingSchedule",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "holder",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "index",
+						"type": "uint256"
+					}
+				],
+				"name": "getVestingScheduleByAddressAndIndex",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "bool",
+								"name": "initialized",
+								"type": "bool"
+							},
+							{
+								"internalType": "address",
+								"name": "beneficiary",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "cliff",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "start",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "duration",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "slicePeriodSeconds",
+								"type": "uint256"
+							},
+							{
+								"internalType": "bool",
+								"name": "revocable",
+								"type": "bool"
+							},
+							{
+								"internalType": "uint256",
+								"name": "amountTotal",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "released",
+								"type": "uint256"
+							},
+							{
+								"internalType": "bool",
+								"name": "revoked",
+								"type": "bool"
+							}
+						],
+						"internalType": "struct TokenVesting.VestingSchedule",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getVestingSchedulesCount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_beneficiary",
+						"type": "address"
+					}
+				],
+				"name": "getVestingSchedulesCountByBeneficiary",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getVestingSchedulesTotalAmount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getWithdrawableAmount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "vestingScheduleId",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "release",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "renounceOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "vestingScheduleId",
+						"type": "bytes32"
+					}
+				],
+				"name": "revoke",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "transferOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "withdraw",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"stateMutability": "payable",
+				"type": "receive"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"computeNextVestingScheduleIdForHolder(address)": {
+					"details": "Computes the next vesting schedule identifier for a given holder address."
+				},
+				"computeReleasableAmount(bytes32)": {
+					"returns": {
+						"_0": "the vested amount"
+					}
+				},
+				"computeVestingScheduleIdForAddressAndIndex(address,uint256)": {
+					"details": "Computes the vesting schedule identifier for an address and an index."
+				},
+				"constructor": {
+					"details": "Creates a vesting contract.",
+					"params": {
+						"token_": "address of the ERC20 token contract"
+					}
+				},
+				"createVestingSchedule(address,uint256,uint256,uint256,uint256,bool,uint256)": {
+					"params": {
+						"_amount": "total amount of tokens to be released at the end of the vesting",
+						"_beneficiary": "address of the beneficiary to whom vested tokens are transferred",
+						"_cliff": "duration in seconds of the cliff in which tokens will begin to vest",
+						"_duration": "duration in seconds of the period in which the tokens will vest",
+						"_revocable": "whether the vesting is revocable or not",
+						"_slicePeriodSeconds": "duration of a slice period for the vesting in seconds",
+						"_start": "start time of the vesting period"
+					}
+				},
+				"getLastVestingScheduleForHolder(address)": {
+					"details": "Returns the last vesting schedule for a given holder address."
+				},
+				"getToken()": {
+					"details": "Returns the address of the ERC20 token managed by the vesting contract."
+				},
+				"getVestingIdAtIndex(uint256)": {
+					"details": "Returns the vesting schedule id at the given index.",
+					"returns": {
+						"_0": "the vesting id"
+					}
+				},
+				"getVestingSchedule(bytes32)": {
+					"returns": {
+						"_0": "the vesting schedule structure information"
+					}
+				},
+				"getVestingScheduleByAddressAndIndex(address,uint256)": {
+					"returns": {
+						"_0": "the vesting schedule structure information"
+					}
+				},
+				"getVestingSchedulesCount()": {
+					"details": "Returns the number of vesting schedules managed by this contract.",
+					"returns": {
+						"_0": "the number of vesting schedules"
+					}
+				},
+				"getVestingSchedulesCountByBeneficiary(address)": {
+					"details": "Returns the number of vesting schedules associated to a beneficiary.",
+					"returns": {
+						"_0": "the number of vesting schedules"
+					}
+				},
+				"getVestingSchedulesTotalAmount()": {
+					"returns": {
+						"_0": "the total amount of vesting schedules"
+					}
+				},
+				"getWithdrawableAmount()": {
+					"details": "Returns the amount of tokens that can be withdrawn by the owner.",
+					"returns": {
+						"_0": "the amount of tokens"
+					}
+				},
+				"owner()": {
+					"details": "Returns the address of the current owner."
+				},
+				"release(bytes32,uint256)": {
+					"params": {
+						"amount": "the amount to release",
+						"vestingScheduleId": "the vesting schedule identifier"
+					}
+				},
+				"renounceOwnership()": {
+					"details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner."
+				},
+				"revoke(bytes32)": {
+					"params": {
+						"vestingScheduleId": "the vesting schedule identifier"
+					}
+				},
+				"transferOwnership(address)": {
+					"details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+				},
+				"withdraw(uint256)": {
+					"params": {
+						"amount": "the amount to withdraw"
+					}
+				}
+			},
+			"title": "TokenVesting",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"computeReleasableAmount(bytes32)": {
+					"notice": "Computes the vested amount of tokens for the given vesting schedule identifier."
+				},
+				"createVestingSchedule(address,uint256,uint256,uint256,uint256,bool,uint256)": {
+					"notice": "Creates a new vesting schedule for a beneficiary."
+				},
+				"getVestingSchedule(bytes32)": {
+					"notice": "Returns the vesting schedule information for a given identifier."
+				},
+				"getVestingScheduleByAddressAndIndex(address,uint256)": {
+					"notice": "Returns the vesting schedule information for a given holder and index."
+				},
+				"getVestingSchedulesTotalAmount()": {
+					"notice": "Returns the total amount of vesting schedules."
+				},
+				"release(bytes32,uint256)": {
+					"notice": "Release vested amount of tokens."
+				},
+				"revoke(bytes32)": {
+					"notice": "Revokes the vesting schedule for given identifier."
+				},
+				"withdraw(uint256)": {
+					"notice": "Withdraw the specified amount if possible."
+				}
+			},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/TokenVesting.sol": "TokenVesting"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/TokenVesting.sol": {
+			"keccak256": "0xcf979567b01d8ae1f247894e5334096f22b81d9918e985674ed8e63a72b40d76",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://1f05300402ab73357ba49efb83976192bd88de6502afb596980c36a996619048",
+				"dweb:/ipfs/QmdrdLvvrum3oF2bcX6ogazTstX1uKxMHpf3BU5C7iXjvq"
+			]
+		}
+	},
+	"version": 1
+}
